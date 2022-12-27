@@ -1,0 +1,102 @@
+body{
+  background: #F3F5FC;
+  font-family: 'Inter', sans-serif;
+  padding: 0;
+  margin: 0;
+
+}
+
+.container{
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 70vw 20vw;
+  padding: 30px;
+  gap: 10px;
+}
+
+.input{
+  width: 600px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: aqua;
+  margin: auto;
+}
+#input{
+  background-color: transparent;
+  color: #0A3871;
+  font-size: 20px;
+  resize: none;
+  border: none;
+  outline: none;
+  width: 500px;
+  height: 450px;
+}
+
+.areaButton{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  background-color: black;
+}
+.areaButton button{
+  width: 250px;
+  height: 45px;
+  border: 1px solid #0A3871;
+  border-radius: 15px;
+}
+
+#encriptarButton{
+  color: white;
+  background-color: #0A3871;
+}
+
+#desencriptarButton{
+  color: #0A3871;
+  background-color: #D8DFE8;
+}
+
+.warning{
+}
+
+.output{
+  /*grid-area: output;*/
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+  border-radius: 25px;
+}
+.output svg{
+  width: 15vw;
+}
+.output h1{
+  width: 15vw;
+  font-size: 20px;
+  font-weight: 700;
+}
+.output span{
+  width: 18vw;
+  font-size: 12px;
+}
+.output button{
+}
+
+#output{
+}
+
+@media (max-width: 768px) {
+  .container{
+    grid-template-columns: auto;
+    grid-template-rows: 80vh 20vh;
+  }
+
+  .output svg{
+    display: none;
+  }
+}
