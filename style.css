@@ -42,6 +42,10 @@
   outline: none;
 }
 
+#input::placeholder{
+  color: #0A3871;
+}
+
 .warning{
   width: 90%;
 }
@@ -74,17 +78,17 @@
 .output{
   width: 20vw;
   background-color: white;
-  text-align: center;
   display: flex;
-  flex-direction: column;
+  text-align: center;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 20px;
   padding: 15px;
   box-sizing: border-box;
   box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.276);
   border-radius: 32px;
   font-size: 10px;
-  gap: 10px;
 }
 .output svg{
   width: 70%;
@@ -92,13 +96,13 @@
 
 #output{
   width: 90%;
-  background-color: white;
+  height: 70vh;
+  background-color: transparent;
   color: #495057;
   font-size: 15px;
   resize: none;
   border: none;
   outline: none;
-  display: none;
 }
 .output button{
   width: 90%;
@@ -108,7 +112,6 @@
   cursor: pointer;
   color: #0A3871;
   background-color: white;
-  display: none;
 }
 
 @media (max-width:820px){
@@ -119,14 +122,22 @@
 
   .logo{
     width: 90vw;
+    height: 10vh;
     justify-content: flex-start;
   }
   .input{
+    height: 60vh;
     width: 90vw;
     margin-top: 0;
   }
   .output{
     width: 90vw;
+    height: auto;
+    justify-content: center;
+  }
+
+  #output{
+  height: 50%;
   }
   .output svg{
     display: none;
