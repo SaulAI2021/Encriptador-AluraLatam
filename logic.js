@@ -1,30 +1,37 @@
 var messagenotfound = document.getElementById('messageNotFound');
 var foundMessage = document.getElementById('foundMessage');
 var output = document.getElementById('output');
-var input = document.getElementById('input');
 
-const vocals = ['a','e','i','o','u'];
-const encript = ['ai','enter','imes','ober','ufat'];
+const listEncript = [
+  {letter:'e', encript:'enter'},
+  {letter:'o', encript:'ober'},
+  {letter:'i', encript:'imes'},
+  {letter:'a', encript:'ai'},
+  {letter:'u', encript:'ufat'}
+]
+
+const encriptacion = (txt , mode) =>{
+  for (let i = 0; i < listEncript.length; i++) {
+    if(mode == 1){
+      let regx = new RegExp(`${listEncript[i].letter}`,'g');
+      txt = txt.replace(regx,listEncript[i].encript);
+    }else{
+      let regx = new RegExp(`${listEncript[i].encript}`,'g');
+      txt = txt.replace(regx,listEncript[i].letter);
+    }
+  }
+  return txt;
+};
 function encriptar(){
   let input = document.getElementById('input').value.toLowerCase();
-  var encriptado = input.replace(/e/g,encript[1])
-                        .replace(/o/g,encript[3])
-                        .replace(/i/g,encript[2])
-                        .replace(/a/g,encript[0])
-                        .replace(/u/g,encript[4]);
-  output.value = encriptado;              
+  output.value = encriptacion(input,1);              
   messagenotfound.style.display = "none";
   foundMessage.style.removeProperty('display');
 }
 
 function desencriptar(){
   let input = document.getElementById('input').value.toLowerCase();
-  var desencriptado = input.replace(/enter/g,vocals[1])
-                           .replace(/ober/g,vocals[3])
-                           .replace(/imes/g,vocals[2])
-                           .replace(/ai/g,vocals[0])
-                           .replace(/ufat/.global,vocals[4]);
-  output.value = desencriptado;            
+  output.value = encriptacion(input,2);            
 }
 
 function copy(){
@@ -33,7 +40,7 @@ function copy(){
   document.execCommand('copy');
 }
 
-setInterval(function () {if(input.value == ''){
+setInterval(()=> {if(input.value == ''){
   foundMessage.style.display = "none";
   messagenotfound.style.removeProperty('display');
 }}, 1000);
