@@ -2,7 +2,7 @@ var messagenotfound = document.getElementById('messageNotFound');
 var foundMessage = document.getElementById('foundMessage');
 var output = document.getElementById('output');
 
-const listEncript = [
+const encryptionlist = [
   {letter:'e', encript:'enter'},
   {letter:'o', encript:'ober'},
   {letter:'i', encript:'imes'},
@@ -10,28 +10,28 @@ const listEncript = [
   {letter:'u', encript:'ufat'}
 ]
 
-const encriptacion = (txt , mode) =>{
-  for (let i = 0; i < listEncript.length; i++) {
+const cifrado = (txt , mode) =>{
+  for (let i = 0; i < encryptionlist.length; i++) {
     if(mode == 1){
-      let regx = new RegExp(`${listEncript[i].letter}`,'g');
-      txt = txt.replace(regx,listEncript[i].encript);
+      let regx = new RegExp(`${encryptionlist[i].letter}`,'g');
+      txt = txt.replace(regx,encryptionlist[i].encript);
     }else{
-      let regx = new RegExp(`${listEncript[i].encript}`,'g');
-      txt = txt.replace(regx,listEncript[i].letter);
+      let regx = new RegExp(`${encryptionlist[i].encript}`,'g');
+      txt = txt.replace(regx,encryptionlist[i].letter);
     }
   }
   return txt;
 };
-function encriptar(){
+function encrypted(){
   let input = document.getElementById('input').value.toLowerCase();
-  output.value = encriptacion(input,1);              
+  output.value = cifrado(input,1);              
   messagenotfound.style.display = "none";
   foundMessage.style.removeProperty('display');
 }
 
-function desencriptar(){
+function decrypted(){
   let input = document.getElementById('input').value.toLowerCase();
-  output.value = encriptacion(input,2);            
+  output.value = cifrado(input,2);            
 }
 
 function copy(){
@@ -43,4 +43,4 @@ function copy(){
 setInterval(()=> {if(input.value == ''){
   foundMessage.style.display = "none";
   messagenotfound.style.removeProperty('display');
-}}, 1000);
+}}, 5000);
